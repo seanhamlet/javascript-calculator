@@ -11,7 +11,6 @@ $(document).ready(function(){
     },
     displayResult: function() {
       var displayedResult = this.result.toString().slice(0,14);
-      // console.log(typeof this.result);
       $('.result').html(displayedResult);
     },
     keyHandler: function(key) {
