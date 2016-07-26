@@ -20,19 +20,19 @@ $(document).ready(function(){
       // If operator, make sure to add space on either side for equation
       // Also, reset dot flag
       if (key.hasClass('operator')) {
-        Calculator.dot = false;
+        this.dot = false;
         value = ' ' + value + ' ';
       } else {
         // If dot character, make sure it hasn't already been used in current number
         // If dot character has been used, then do nothing upon dot button click
-        if (value === '.' && !Calculator.dot) {
-          Calculator.dot = true;
-        } else if (value === '.' && Calculator.dot) {
+        if (value === '.' && !this.dot) {
+          this.dot = true;
+        } else if (value === '.' && this.dot) {
           return;
         }
       }
-      Calculator.input.push(value);
-      Calculator.displayEquation();
+      this.input.push(value);
+      this.displayEquation();
     },
     evaluate: function() {
       // If equation ends in operator
