@@ -9,6 +9,11 @@ $(document).ready(function(){
     displayEquation: function() {
       $('.eqn').html(this.input.join(''));
     },
+    displayResult: function() {
+      var displayedResult = this.result.toString().slice(0,14);
+      // console.log(typeof this.result);
+      $('.result').html(displayedResult);
+    },
     keyHandler: function(key) {
       // Clear result upon key or operator button click
       this.result = '';
@@ -56,7 +61,7 @@ $(document).ready(function(){
 
       // Valid input if reached this point, thus evaluate string and update results
       this.result = eval(inputStr);
-      $('.result').html(this.result);
+      this.displayResult();
     },
     clearEntry: function() {
       // Remove last entry from equation (value or operator)
@@ -68,7 +73,7 @@ $(document).ready(function(){
       this.result = '0';
       this.eqn = ''
       this.displayEquation();
-      $('.result').html(this.result);
+      this.displayResult();
     }
   };
 
