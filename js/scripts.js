@@ -7,7 +7,9 @@ $(document).ready(function(){
     dot: false,
     operators: [' + ',' - ', ' ÷ ', ' × '],
     displayEquation: function() {
-      $('.eqn').html(this.input.join(''));
+      var displayedEqnLength = 20;
+      var displayedEqn = this.input.slice(-displayedEqnLength).join('');
+      $('.eqn').html(displayedEqn);
     },
     displayResult: function() {
       var displayedResult = this.result.toString().slice(0,14);
