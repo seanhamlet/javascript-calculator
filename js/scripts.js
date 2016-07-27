@@ -1,14 +1,13 @@
 $(document).ready(function(){
 
   var Calculator = {
-    input: [],
-    eqn: '',
+    equation: [],
     result: '',
     dot: false,
     operators: [' + ',' - ', ' ÷ ', ' × '],
     displayEquation: function() {
       var displayedEqnLength = 20;
-      var displayedEqn = this.input.slice(-displayedEqnLength).join('');
+      var displayedEqn = this.equation.slice(-displayedEqnLength).join('');
       $('.eqn').html(displayedEqn);
     },
     displayResult: function() {
@@ -37,12 +36,12 @@ $(document).ready(function(){
           return;
         }
       }
-      this.input.push(value);
+      this.equation.push(value);
       this.displayEquation();
     },
     evaluate: function() {
       // If equation ends in operator
-      if (this.operators.indexOf(this.input[this.input.length-1]) > 1) {
+      if (this.operators.indexOf(this.equation[this.equation.length-1]) > 1) {
         // handle don't start with or end with operator
         alert('Equation ends with operator!');
       }
@@ -50,7 +49,7 @@ $(document).ready(function(){
       // Replace all instances of × and ÷ with * and / respectively.
       // This can be done easily using regex and the global  which will
       // replace all instances of the matched character/substring
-      var inputStr = this.input.join('');
+      var inputStr = this.equation.join('');
       inputStr = inputStr.replace(/÷/g,'/').replace(/×/g,'*').replace(/\s+/g,'');
 
       // Use regex to make sure 2 or more operators are not used in a row
@@ -66,13 +65,12 @@ $(document).ready(function(){
     },
     clearEntry: function() {
       // Remove last entry from equation (value or operator)
-      this.input.pop();
+      this.equation.pop();
       this.displayEquation();
     },
     clearAll: function() {
-      this.input = [];
+      this.equation = [];
       this.result = '0';
-      this.eqn = ''
       this.displayEquation();
       this.displayResult();
     }
