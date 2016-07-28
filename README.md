@@ -9,3 +9,13 @@ Advanced front-end development project for [FreeCodeCamp](https://www.freecodeca
 3. User can keep chaining mathematical operations together until clicking the equal button, and the calculator will display the correct output.
 
 Feel free to use the calculator [here](https://seanmhamlet.github.io/javascript-calculator/).
+
+Toos Used:
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+- jQuery
+
+Techniques Used:
+- Object-oriented programming
