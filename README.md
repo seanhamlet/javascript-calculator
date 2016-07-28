@@ -8,7 +8,11 @@ Advanced front-end development project for [FreeCodeCamp](https://www.freecodeca
 2. User can clear the input field with a clear button.
 3. User can keep chaining mathematical operations together until clicking the equal button, and the calculator will display the correct output.
 
-Feel free to use the calculator [here](https://seanmhamlet.github.io/javascript-calculator/).
+## Using the JavaScript Calculator
+
+Click [here](https://seanmhamlet.github.io/javascript-calculator/) to visit the calculator site.
+
+### Tools and Techniques
 
 Toos Used:
 - HTML
