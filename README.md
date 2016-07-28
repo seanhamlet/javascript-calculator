@@ -19,3 +19,5 @@ Toos Used:
 
 Techniques Used:
 - Object-oriented programming
+
+![JavaScript Calculator Screenshot](/images/javascript-calculator.png "JavaScript Calculator")
