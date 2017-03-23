@@ -4,6 +4,7 @@ $(document).ready(function(){
     equation: [],
     result: '',
     dot: false,
+    operatorPrev: false, // used to make sure operator not used twice in a row
     operators: [' + ',' - ', ' ÷ ', ' × '],
     displayEquation: function() {
       var displayedEqnLength = 20;
@@ -22,11 +23,19 @@ $(document).ready(function(){
       // Use html value of button
       var value = key.html();
 
-      // If operator, make sure to add space on either side for equation
+      // If operator not used immediately before, make sure to add space on
+      // either side for equation
       // Also, reset dot flag
       if (key.hasClass('operator')) {
-        this.dot = false;
-        value = ' ' + value + ' ';
+        // return if operator used immediately previously
+        if (this.operatorPrev) {
+          return;
+        // else use operator and set operator prev flag to true
+        } else {
+          this.operatorPrev = true;
+          this.dot = false;
+          value = ' ' + value + ' ';
+        }
       } else {
         // If dot character, make sure it hasn't already been used in current number
         // If dot character has been used, then do nothing upon dot button click
@@ -35,6 +44,9 @@ $(document).ready(function(){
         } else if (value === '.' && this.dot) {
           return;
         }
+
+        // Reset operator previously used flag
+        this.operatorPrev = false;
       }
       this.equation.push(value);
       this.displayEquation();
